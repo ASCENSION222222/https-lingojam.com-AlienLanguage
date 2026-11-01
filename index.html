@@ -34,7 +34,7 @@
 <body>
   <!-- Replace this image URL with the butterfly GIF you want to use. -->
   <img id="butterfly"
-       src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Monarch_Butterfly_GIF.gif"
+       src="https://imgs.search.brave.com/x5hQpmXfjb-2pjKoR7T_fxeUmIfwaUerFTjVBEkb9G0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9zaWxo/b3VldHRlLWJhdHRl/cmZseS1wYWludGVk/LWJsb3RzLWJsYWNr/LXNwbGF0dGVyZWQt/aW5zZWN0LXdpbmdz/LTQzNjcyNTQyLmpw/Zw"
        alt="butterfly">
 
   <div id="stage1" class="stage">
@@ -48,7 +48,7 @@
   <div id="stage2" class="stage hidden">
     <p>message recovered:</p>
     <!-- Replace the placeholder below with the exact Alien Language output from LingoJam. -->
-    <pre id="alienMessage">[PASTE YOUR ALIEN-LANGUAGE MESSAGE HERE]</pre>
+    <pre id="alienMessage">⋔⏁⟒☌☊⋔⌰⍙☊☌⌖⌰⟟⎅☌⋉⟟☌⟊⊬⊬⌖⋉⎐⟟⎅⟟3⟟☌⍀⌰⏚⊑⍀⊑</pre>
     <p class="prompt">what does it say?</p>
     <input id="phrase" type="text" autocomplete="off" spellcheck="false">
     <button id="checkPhrase">submit</button>
@@ -66,7 +66,7 @@
     <p>congratulations.</p>
     <!-- Replace this URL with the cicada GIF you want to use. -->
     <img id="cicada"
-         src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Cicada_orni.gif"
+         src="https://imgs.search.brave.com/MIdYyjXKJl2Yf4xLtdwz13Cf9Ey6deMr8B3MyTBMsQg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNjcv/NjE3LzU0Mi9zbWFs/bC9hLXZpbnRhZ2Ut/c3R5bGUtaWxsdXN0/cmF0aW9uLXNob3dp/bmctY2ljYWRhLXZl/Y3Rvci5qcGc"
          alt="cicada">
   </div>
 
@@ -78,7 +78,7 @@
       const answer = normalize(document.getElementById("researcher").value);
       const feedback = document.getElementById("researcherFeedback");
 
-      if (answer === "carl sagan") {
+      if (answer === "isaac asimov") {
         document.getElementById("stage2").classList.remove("hidden");
         feedback.textContent = "";
       } else {
