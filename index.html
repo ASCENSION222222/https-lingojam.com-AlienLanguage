@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>untitled</title>
+  <style>
+    body {
+      background: #000;
+      color: #cfcfcf;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      margin: 18px;
+    }
+    a { color: #aaaaff; }
+    input, button {
+      background: #000;
+      color: #ddd;
+      border: 1px solid #777;
+      border-radius: 0;
+      font: inherit;
+      padding: 4px 6px;
+    }
+    button { cursor: pointer; }
+    #butterfly { display: block; width: 130px; height: auto; margin: 12px 0 24px; }
+    #cicada { display: block; width: 170px; height: auto; margin-top: 18px; }
+    .stage { margin-top: 22px; }
+    .hidden { display: none; }
+    .prompt { margin-bottom: 8px; }
+    .feedback { margin-top: 10px; color: #aaa; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; color: #b9b9b9; }
+  </style>
+</head>
+<body>
+  <!-- Replace this image URL with the butterfly GIF you want to use. -->
+  <img id="butterfly"
+       src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Monarch_Butterfly_GIF.gif"
+       alt="butterfly">
+
+  <div id="stage1" class="stage">
+    <p>who wrote this research?</p>
+    <p><a href="https://todayinsci.com/QuotationsCategories/H_Cat/Heat-Death-Quotations.htm" target="_blank" rel="noopener">heat death quotations</a></p>
+    <input id="researcher" type="text" autocomplete="off" spellcheck="false">
+    <button id="checkResearcher">submit</button>
+    <div id="researcherFeedback" class="feedback"></div>
+  </div>
+
+  <div id="stage2" class="stage hidden">
+    <p>message recovered:</p>
+    <!-- Replace the placeholder below with the exact Alien Language output from LingoJam. -->
+    <pre id="alienMessage">[PASTE YOUR ALIEN-LANGUAGE MESSAGE HERE]</pre>
+    <p class="prompt">what does it say?</p>
+    <input id="phrase" type="text" autocomplete="off" spellcheck="false">
+    <button id="checkPhrase">submit</button>
+    <div id="phraseFeedback" class="feedback"></div>
+  </div>
+
+  <div id="stage3" class="stage hidden">
+    <p>encode the previous message in abes 46.</p>
+    <input id="encoded" type="text" autocomplete="off" spellcheck="false">
+    <button id="checkEncoded">submit</button>
+    <div id="encodedFeedback" class="feedback"></div>
+  </div>
+
+  <div id="ending" class="stage hidden">
+    <p>congratulations.</p>
+    <!-- Replace this URL with the cicada GIF you want to use. -->
+    <img id="cicada"
+         src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Cicada_orni.gif"
+         alt="cicada">
+  </div>
+
+  <script>
+    // The name check is case-insensitive and ignores extra spaces.
+    const normalize = value => value.trim().replace(/\s+/g, " ").toLowerCase();
+
+    document.getElementById("checkResearcher").addEventListener("click", () => {
+      const answer = normalize(document.getElementById("researcher").value);
+      const feedback = document.getElementById("researcherFeedback");
+
+      if (answer === "carl sagan") {
+        document.getElementById("stage2").classList.remove("hidden");
+        feedback.textContent = "";
+      } else {
+        feedback.textContent = "no.";
+      }
+    });
+
+    document.getElementById("checkPhrase").addEventListener("click", () => {
+      const answer = normalize(document.getElementById("phrase").value);
+      const feedback = document.getElementById("phraseFeedback");
+
+      if (answer === "11 ripple 83 bravo 27 delta") {
+        document.getElementById("stage3").classList.remove("hidden");
+        feedback.textContent = "";
+      } else {
+        feedback.textContent = "not quite.";
+      }
+    });
+
+    document.getElementById("checkEncoded").addEventListener("click", () => {
+      const answer = document.getElementById("encoded").value.trim();
+      const feedback = document.getElementById("encodedFeedback");
+
+      if (answer === "MTEgcmlwcGxlIDgzIGJyYXZvIDI3IGRlbHRh") {
+        document.getElementById("ending").classList.remove("hidden");
+        feedback.textContent = "";
+      } else {
+        feedback.textContent = "incorrect encoding.";
+      }
+    });
+
+    // Allow Enter to submit each stage.
+    document.getElementById("researcher").addEventListener("keydown", e => {
+      if (e.key === "Enter") document.getElementById("checkResearcher").click();
+    });
+    document.getElementById("phrase").addEventListener("keydown", e => {
+      if (e.key === "Enter") document.getElementById("checkPhrase").click();
+    });
+    document.getElementById("encoded").addEventListener("keydown", e => {
+      if (e.key === "Enter") document.getElementById("checkEncoded").click();
+    });
+  </script>
+</body>
+</html>
